@@ -1,6 +1,9 @@
 export default function({dispatch}){
     return next => action => {
-        console.log(action);
-        next(action);
+        if(!action.payload || !action.payload.then){
+            return next(action);
+        }
+
+        console.log('we have a promise',action);
     }
 }
