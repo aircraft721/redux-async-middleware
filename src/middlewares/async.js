@@ -8,6 +8,7 @@ export default function({dispatch}){
         action.payload
             .then((response) => {
                 const newAction = {...action, payload: response};
+                dispatch(newAction);
             });
 
     }
